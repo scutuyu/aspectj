@@ -91,3 +91,8 @@ public class PreAdvise {
     <!-- AOP 自动代理 -->
     <aop:aspectj-autoproxy/>
 ```
+
+## 踩坑
+遇到错误：java.lang.ClassNotFoundException: org.aspectj.weaver.reflect.ReflectionWorld$ReflectionWorldException
+Google之后：https://stackoverflow.com/questions/37829511/java-lang-classnotfoundexception-org-aspectj-weaver-reflect-reflectionworldref
+发现原来是aspectjweaver包引入错误，groupId不是aspectj，而是org.aspectj
