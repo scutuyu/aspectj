@@ -3,7 +3,7 @@ package com.tuyu;
 import org.springframework.stereotype.Component;
 
 /**
- * 待增强的类
+ * 待增强的类，代理接口的实现类
  * @author tuyu
  * @date 9/10/18
  * Talk is cheap, show me the code.

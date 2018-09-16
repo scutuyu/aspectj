@@ -1,27 +1,20 @@
 package com.tuyu;
 
-import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
 /**
- * 实现了MethodInterceptor接口，并能创建代理对象的类
  * @author tuyu
  * @date 9/16/18
  * Talk is cheap, show me the code.
  */
-public class CglibProxy implements MethodInterceptor {
+public class CglibMethodInterceptor implements MethodInterceptor {
     private Object targetObject;
 
-    public Object createProxy(Object targetObject) {
+    public CglibMethodInterceptor(Object targetObject) {
         this.targetObject = targetObject;
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(targetObject.getClass());
-        enhancer.setCallback(this);
-        Object ret = enhancer.create();
-        return ret;
     }
 
     @Override
@@ -34,5 +27,4 @@ public class CglibProxy implements MethodInterceptor {
         System.out.println("cglib after execute method");
         return ret;
     }
-
 }
